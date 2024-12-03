@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Roots */
+:root {
+  /* Backgrounds */
+  --background-color: #232522;
+  --background-color-seconed: #ff9306;
+
+  --done-task-color: #33d00c;
+  --pending-task-color: #dec800;
+
+  /* Fonts */
+  --font-color-main: #f7f2ef;
+
+  /* Shadow */
+  --box-shadow: 0px 0px 21px -8px black;
+}
+
+body {
+  margin: 0;
+  font-family: "Blinker", sans-serif !important;
+  background-color: var(--font-color-main);
+  color: var(--background-color);
+  font-family: "Potta One", system-ui;
+}
+
+/* Notification Pop up */
+.success-snack {
+  background-color: green !important;
+  color: white !important;
+}
+
+.info-snack {
+  background-color: blue;
+  color: white;
+}
+
+.error-snack {
+  background-color: red;
+  color: white;
+}

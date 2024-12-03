@@ -1,0 +1,73 @@
+.theme-toggle {
+  position: relative;
+}
+
+#darkmode-toggle {
+  display: none;
+}
+
+.theme-toggle label {
+  cursor: pointer;
+  display: block;
+  width: 70px;
+  height: 35px;
+  background-color: var(--background-color-seconed);
+  border-radius: 50px;
+  position: relative;
+  transition: background-color 0.3s ease;
+  box-shadow: var(--box-shadow);
+}
+
+#darkmode-toggle:checked + label {
+  background-color: var(--background-color-seconed);
+}
+
+.toggle-circle {
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--box-shadow);
+
+}
+
+#darkmode-toggle:checked + label .toggle-circle {
+  transform: translateX(35px);
+}
+
+.sun,
+.moon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: opacity 0.3s ease;
+}
+
+.sun {
+  color: #ffd43b;
+  opacity: 1;
+}
+
+.moon {
+  color: #c4c9d4;
+  opacity: 0;
+}
+
+#darkmode-toggle:checked ~ label .sun {
+  opacity: 0;
+}
+
+#darkmode-toggle:checked ~ label .moon {
+  opacity: 1;
+}

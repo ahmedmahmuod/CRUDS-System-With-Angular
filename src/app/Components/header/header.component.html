@@ -1,0 +1,9 @@
+<nav class="mt-5 mx-10 flex items-center justify-between">
+    <!-- Add new Task -->
+    <i (click)="taskService.openAddTaskDialog()" matTooltip="Add New Task" id="add-task" class="material-icons">add</i>
+    <ul class="flex items-center gap-5">
+        <a class="logo text-3xl cursor-default">Keeps <span
+                class="tasks-length">{{taskService.allTasks().length}}</span></a>
+    </ul>
+    <app-dark-mode-toggle />
+</nav>

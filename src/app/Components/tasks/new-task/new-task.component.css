@@ -1,0 +1,40 @@
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 350px;
+  padding: 16px 0;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-dialog-content {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.mat-dialog-actions {
+  padding: 16px 0;
+  margin-bottom: 0;
+}
+
+.save-task {
+  background-color: var(--background-color-seconed);
+  color: var(--font-color-main);
+  padding: 5px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: box-shadow 0.3s ease;
+}
+
+.save-task:hover {
+  box-shadow: none;
+}
+
+.cancel-task {
+  color: var(--background-color-seconed);
+  margin-right: 10px;
+}

@@ -1,0 +1,23 @@
+.tasks-length {
+  background-color: var(--background-color-seconed);
+  color: var(--font-color-main);
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 23px;
+  width: 20px;
+}
+
+#add-task {
+  font-size: 40px;
+  background-color: var(--background-color-seconed);
+  color: var(--font-color-main);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.logo {
+  color: var(--background-color-seconed)
+}

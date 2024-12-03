@@ -1,0 +1,70 @@
+<div class="sorting w-full ml-5 mb-7 flex justify-center flex-wrap gap-5">
+    <!-- Sort Selected by Category -->
+    <div class="select flex flex-col gap-2 items-center">
+        <h2>Filter By Category</h2>
+        <select [(ngModel)]="selectedCategory" class="select category cursor-pointer" name="" id="">
+            <option value="">All Category</option>
+            @for (category of getUniqueCategories(); track $index) {
+            <option value="{{category}}">{{category}}</option>
+            }
+        </select>
+    </div>
+
+    <!-- Search by Title -->
+    <div class="select flex flex-col gap-2 items-center">
+        <h2>Search By Title</h2>
+        <input [(ngModel)]="searchTerm" (keyup)="searchSubject.next(searchTerm())" class="select" type="search"
+            placeholder="Search for tasks">
+    </div>
+
+    <!-- Sort Selected by Category -->
+    <div class="select flex flex-col gap-2 items-center">
+        <h2>Filter By Status</h2>
+        <select [(ngModel)]="selectedStatus" class="select category cursor-pointer" name="" id="">
+            <option [ngValue]="null">All Tasks</option>
+            <option [ngValue]="'Pending'">Pending Tasks</option>
+            <option [ngValue]="'Done'">Done Tasks</option>
+        </select>
+    </div>
+</div>
+
+@if (allTasks().length >= 1) {
+<div class="task-container">
+    <!-- Get All Tasks -->
+    <div class="flex flex-wrap justify-center">
+        @for (task of getFilteredTasks(); track task.id) {
+        <div class="m-5  p-5 gap-5 rounded-2xl task">
+            <div class="flex flex-col justify-between h-full">
+                <div>
+                    <h2 class="font-bold text-lg">{{task.title}}</h2>
+                    <p class="mb-5 break-words">{{task.description}}</p>
+                </div>
+                <div class="flex gap-5 w-full justify-between items-center">
+                    <p [ngClass]="{'task-done': task.status === 'Done', 'task-pending':  task.status === 'Pending'}"
+                        class="status">
+                        {{task.status === 'Done' ? 'Done' : 'Pending '}}
+
+                    </p>
+                    <p class="underline italic">{{task.date | date}}</p>
+                    <p class="task-category">{{task.category}}</p>
+                </div>
+            </div>
+            <!-- Btn delete and edit task -->
+            <i (click)="deleteTask(task.id)" matTooltip="Delete This Task" id="delete-task"
+                class="material-icons">delete</i>
+            <i (click)="openEditTaskDialog(task)" matTooltip="Edit This Task" id="edit-task"
+                class="material-icons">edit</i>
+        </div>
+        }
+    </div>
+</div>
+
+} @else {
+@if (!isNoTasksFound()) {
+<h1 class="no-task">No tasks found, Please Add a New Task!</h1>
+
+}
+}
+@if (isNoTasksFound()) {
+<h1 class="text-center">Search Not Found!</h1>
+}
